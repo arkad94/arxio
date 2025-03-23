@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>AUTOSAR Requirement Summary Dashboard</title>
   <style>
-    table { border-collapse: collapse; margin-bottom: 20px; }
-    th, td { border: 1px solid #ccc; padding: 5px; }
+    table { border-collapse: collapse; margin-bottom: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 5px; text-align: left; }
     h2 { margin-top: 40px; }
+    pre { background: #f4f4f4; padding: 10px; }
   </style>
 </head>
 <body>
@@ -22,11 +23,18 @@
   </form>
 
   {% if diagram %}
-    <h2>Architecture Diagram</h2>
+    <h2>Architecture Diagram (2D)</h2>
     <p>
-      <a href="{{ url_for('diagram', filename=diagram) }}" target="_blank">View Full Architecture Diagram</a>
+      <a href="{{ url_for('diagram', filename=diagram) }}" target="_blank">View Full 2D Architecture Diagram</a>
     </p>
     <img src="{{ url_for('diagram', filename=diagram) }}" alt="Composition Diagram" style="max-width: 600px;">
+  {% endif %}
+
+  {% if arxml_filename %}
+    <h2>Interactive 3D Diagram</h2>
+    <p>
+      <a href="{{ url_for('diagram3d', filename=arxml_filename) }}" target="_blank">View 3D Interactive Diagram</a>
+    </p>
   {% endif %}
 
   {% if dashboard %}
@@ -50,6 +58,7 @@
         <th>Name</th>
         <th>UUID</th>
         <th>Ports</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for comp in dashboard.swcs %}
@@ -59,9 +68,10 @@
         <td>
           {% for port in comp.ports %}
             {{ port.port_type }} - {{ port.short_name }} ({{ port.uuid }})<br>
-            <small>Interface: {{ port.interface_ref }}</small><br>
+            <small>Interface: {{ port.interface_ref }} (DEST: {{ port.interface_ref_dest }})</small><br>
           {% endfor %}
         </td>
+        <td><pre>{{ comp.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('swc_detail', uuid=comp.uuid) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -73,7 +83,10 @@
         <th>Name</th>
         <th>UUID</th>
         <th>Type</th>
+        <th>Is Service</th>
+        <th>Category</th>
         <th>Data Elements</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for iface in dashboard.interfaces %}
@@ -81,12 +94,16 @@
         <td>{{ iface.name }}</td>
         <td>{{ iface.uuid }}</td>
         <td>{{ iface.type }}</td>
+        <td>{{ iface.is_service or "N/A" }}</td>
+        <td>{{ iface.category or "N/A" }}</td>
         <td>
           {% for de in iface.data_elements %}
             {{ de.name }} ({{ de.uuid }})<br>
             <small>Type Ref: {{ de.type_ref }}</small><br>
+            <small>SW-DATA-DEF-PROPS: {{ de.sw_data_def_props or "N/A" }}</small><br>
           {% endfor %}
         </td>
+        <td><pre>{{ iface.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('interface_detail', uuid=iface.uuid) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -97,12 +114,14 @@
       <tr>
         <th>Name</th>
         <th>Mapped Signal</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for signal in dashboard.signals %}
       <tr>
         <td>{{ signal.name }}</td>
         <td>{{ signal.mapped_signal }}</td>
+        <td><pre>{{ signal.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('signal_detail', name=signal.name) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -114,6 +133,8 @@
         <th>Name</th>
         <th>Provider</th>
         <th>Requester</th>
+        <th>Description</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for conn in dashboard.connectors %}
@@ -121,6 +142,8 @@
         <td>{{ conn.name }}</td>
         <td>{{ conn.provider }}</td>
         <td>{{ conn.requester }}</td>
+        <td>{{ conn.description or "N/A" }}</td>
+        <td><pre>{{ conn.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('connector_detail', name=conn.name) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -130,16 +153,20 @@
     <table>
       <tr>
         <th>Behavior</th>
+        <th>Handle Termination &amp; Restart</th>
         <th>Events</th>
         <th>Runnables (with Variable Access)</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for func in dashboard.functional %}
       <tr>
         <td>{{ func.behavior }}</td>
+        <td>{{ func.handle_termination_and_restart }}</td>
         <td>
           {% for event in func.events %}
             {{ event.type }}: {{ event.name }}{% if event.period %} (Period: {{ event.period }}){% endif %}<br>
+            <small>Description: {{ event.description or "N/A" }}</small><br>
           {% endfor %}
         </td>
         <td>
@@ -158,6 +185,7 @@
             <hr>
           {% endfor %}
         </td>
+        <td><pre>{{ func.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('functional_detail', behavior=func.behavior) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -168,6 +196,7 @@
       <tr>
         <th>Interface</th>
         <th>Error(s)</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for diag in dashboard.diagnostic %}
@@ -178,6 +207,7 @@
             {{ err.name }} (Code: {{ err.code }})<br>
           {% endfor %}
         </td>
+        <td><pre>{{ diag.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('diagnostic_detail', interface=diag.interface) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -189,6 +219,7 @@
         <th>Interface</th>
         <th>Error Name</th>
         <th>Error Code</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for errdef in dashboard.error_definitions %}
@@ -196,6 +227,7 @@
         <td>{{ errdef.interface }}</td>
         <td>{{ errdef.error_name }}</td>
         <td>{{ errdef.error_code }}</td>
+        <td><pre>{{ errdef.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('error_detail', interface=errdef.interface) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -206,12 +238,14 @@
       <tr>
         <th>Component (Implementation)</th>
         <th>Resource Consumption</th>
+        <th>Attributes</th>
         <th>Detail</th>
       </tr>
       {% for res in dashboard.resource %}
       <tr>
         <td>{{ res.component }}</td>
         <td>{{ res.resource_consumption }}</td>
+        <td><pre>{{ res.attributes | tojson(indent=2) }}</pre></td>
         <td><a href="{{ url_for('resource_detail', component=res.component) }}">View Details</a></td>
       </tr>
       {% endfor %}
@@ -223,6 +257,7 @@
         <th>Mapping Short Name</th>
         <th>SWC Implementation Mappings</th>
         <th>Data Mappings</th>
+        <th>Attributes</th>
       </tr>
       {% for mapping in dashboard.system_mappings %}
       <tr>
@@ -249,6 +284,7 @@
             N/A
           {% endif %}
         </td>
+        <td><pre>{{ mapping.attributes | tojson(indent=2) }}</pre></td>
       </tr>
       {% endfor %}
     </table>
@@ -260,12 +296,14 @@
         <th>Name</th>
         <th>UUID</th>
         <th>System Signal Ref</th>
+        <th>Attributes</th>
       </tr>
       {% for isig in dashboard.communication.i_signals %}
       <tr>
         <td>{{ isig.name }}</td>
         <td>{{ isig.uuid }}</td>
         <td>{{ isig.system_signal_ref }}</td>
+        <td><pre>{{ isig.attributes | tojson(indent=2) }}</pre></td>
       </tr>
       {% endfor %}
     </table>
@@ -276,6 +314,7 @@
         <th>Name</th>
         <th>UUID</th>
         <th>Mappings</th>
+        <th>Attributes</th>
       </tr>
       {% for ipdu in dashboard.communication.i_signal_ipdus %}
       <tr>
@@ -286,6 +325,7 @@
             {{ map.short_name }}: {{ map.i_signal_ref }}<br>
           {% endfor %}
         </td>
+        <td><pre>{{ ipdu.attributes | tojson(indent=2) }}</pre></td>
       </tr>
       {% endfor %}
     </table>
@@ -295,7 +335,7 @@
   <h2>Roadmap for Future Improvements</h2>
   <ul>
     <li><strong>Enhanced Layout:</strong> Experiment with hierarchical layouts (e.g., dot or graphviz) for clearer component grouping.</li>
-    <li><strong>Port & Connector Details:</strong> Represent ports as symbols attached to boxes and show connectors between specific ports.</li>
+    <li><strong>Port &amp; Connector Details:</strong> Represent ports as symbols attached to boxes and show connectors between specific ports.</li>
     <li><strong>Multiple Views:</strong> Develop separate diagrams for overall composition, internal SWC behavior, and data type/communication mappings.</li>
     <li><strong>Interactive Visualization:</strong> Integrate JavaScript libraries (like D3.js or Cytoscape.js) for interactive diagram exploration.</li>
     <li><strong>Error Handling:</strong> Improve validation and error reporting for nonconforming ARXML files.</li>

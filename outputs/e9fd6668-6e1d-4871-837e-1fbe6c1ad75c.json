@@ -1,0 +1,1742 @@
+{
+  "system_overview": {
+    "system_name": "N/A",
+    "system_type": "N/A",
+    "attributes": {}
+  },
+  "package_structure": [
+    {
+      "short_name": "pkg",
+      "attributes": {
+        "UUID": "272bbb53-1503-4d35-8455-e222545bbd63"
+      },
+      "elements": [],
+      "packages": [
+        {
+          "short_name": "tst002",
+          "attributes": {
+            "UUID": "4f87a323-9d72-5246-dfba-5e1319cb90e2"
+          },
+          "elements": [
+            {
+              "tag": "APPLICATION-SW-COMPONENT-TYPE",
+              "short_name": "swc001",
+              "uuid": "c3d6eca3-6282-59f2-9537-ad8e4d3cd4b4",
+              "attributes": {
+                "UUID": "c3d6eca3-6282-59f2-9537-ad8e4d3cd4b4"
+              }
+            },
+            {
+              "tag": "APPLICATION-SW-COMPONENT-TYPE",
+              "short_name": "swc002",
+              "uuid": "81902963-0892-4af2-8bf6-a929a746f9a5",
+              "attributes": {
+                "UUID": "81902963-0892-4af2-8bf6-a929a746f9a5"
+              }
+            }
+          ],
+          "packages": []
+        }
+      ]
+    }
+  ],
+  "swcs": [
+    {
+      "name": "swc001",
+      "uuid": "c3d6eca3-6282-59f2-9537-ad8e4d3cd4b4",
+      "ports": [
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "in",
+          "uuid": "1df5fb6e-920f-55ff-4480-8badeb6bf13f",
+          "interface_ref": "/pkg/interfaces/iRcv",
+          "interface_ref_dest": "SENDER-RECEIVER-INTERFACE",
+          "attributes": {
+            "UUID": "1df5fb6e-920f-55ff-4480-8badeb6bf13f"
+          }
+        },
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "out",
+          "uuid": "045ca2ac-402e-518f-602a-38217edeedb0",
+          "interface_ref": "/pkg/interfaces/iSend",
+          "interface_ref_dest": "SENDER-RECEIVER-INTERFACE",
+          "attributes": {
+            "UUID": "045ca2ac-402e-518f-602a-38217edeedb0"
+          }
+        },
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "pport",
+          "uuid": "5277f9f2-5e54-4682-8685-71dca6ffa774",
+          "interface_ref": "/pkg/interfaces/iOperations",
+          "interface_ref_dest": "CLIENT-SERVER-INTERFACE",
+          "attributes": {
+            "UUID": "5277f9f2-5e54-4682-8685-71dca6ffa774"
+          }
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "rport",
+          "uuid": "cff41748-16e3-40d5-b898-aeca00846138",
+          "interface_ref": "/pkg/interfaces/iServer",
+          "interface_ref_dest": "CLIENT-SERVER-INTERFACE",
+          "attributes": {
+            "UUID": "cff41748-16e3-40d5-b898-aeca00846138"
+          }
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "rmode",
+          "uuid": "bec58be4-f65a-410c-8756-534d3eb12315",
+          "interface_ref": "/pkg/interfaces/iEcuMode",
+          "interface_ref_dest": "MODE-SWITCH-INTERFACE",
+          "attributes": {
+            "UUID": "bec58be4-f65a-410c-8756-534d3eb12315"
+          }
+        }
+      ],
+      "attributes": {
+        "UUID": "c3d6eca3-6282-59f2-9537-ad8e4d3cd4b4"
+      }
+    },
+    {
+      "name": "swc002",
+      "uuid": "81902963-0892-4af2-8bf6-a929a746f9a5",
+      "ports": [],
+      "attributes": {
+        "UUID": "81902963-0892-4af2-8bf6-a929a746f9a5"
+      }
+    }
+  ],
+  "swc_count": 2,
+  "interfaces": [],
+  "interface_count": 0,
+  "signals": [],
+  "signal_count": 0,
+  "connectors": [],
+  "connector_count": 0,
+  "functional": [
+    {
+      "behavior": "bhv001",
+      "handle_termination_and_restart": "NO-SUPPORT",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "onesec",
+          "attributes": {
+            "UUID": "e35550b3-c853-579a-c5e9-30e1da15143f"
+          },
+          "period": "0.1"
+        },
+        {
+          "type": "OPERATION-INVOKED-EVENT",
+          "name": "call_foo",
+          "attributes": {
+            "UUID": "cd63b68e-b9b7-4829-ad51-c9d326f8657e"
+          }
+        },
+        {
+          "type": "SWC-MODE-SWITCH-EVENT",
+          "name": "on_init",
+          "attributes": {
+            "S": "",
+            "UUID": "71858a8b-8332-491b-b303-dfcda17a49d8"
+          }
+        }
+      ],
+      "runnables": [
+        {
+          "name": "init",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [],
+          "data_write_access": [],
+          "attributes": {
+            "UUID": "e2191d75-88f2-59d4-b44d-808507df3592"
+          }
+        },
+        {
+          "name": "step",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [
+            {
+              "short_name": "IN_input_e1",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "dd52cdf0-1064-5bd5-d9d1-6fc8dc379a43"
+              }
+            },
+            {
+              "short_name": "IN_input_e2",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "5341c68b-063b-5e84-6eb7-f0e594cf622d"
+              }
+            },
+            {
+              "short_name": "IN_input_e3",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "d48516e8-ea5a-5caf-e291-474ee85d39dc"
+              }
+            },
+            {
+              "short_name": "IN_input_e4",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "b7e86dd3-5e12-5f59-20cd-7b6dd2eb43c7"
+              }
+            },
+            {
+              "short_name": "IN_input_e5",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "3d8aaba0-f614-5d95-c080-a9fdbbba7720"
+              }
+            },
+            {
+              "short_name": "IN_input_e6",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "5bb61675-0656-5f55-caf5-b982a4e0b9f6"
+              }
+            }
+          ],
+          "data_write_access": [
+            {
+              "short_name": "OUT_output_e1",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "6f92736b-a69e-553c-d184-0433d42e2105"
+              }
+            },
+            {
+              "short_name": "OUT_output_e2",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "7d19b7e0-be8a-583f-588e-212ce9b952eb"
+              }
+            },
+            {
+              "short_name": "OUT_output_e3",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "82e61267-d783-5ba9-2c0a-a3d68dfeb9cc"
+              }
+            },
+            {
+              "short_name": "OUT_output_e4",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "58d124bc-759f-5be6-22d0-1018ecdd4090"
+              }
+            },
+            {
+              "short_name": "OUT_output_e5",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "67b62b1e-646c-506e-f959-1a5a84b08769"
+              }
+            },
+            {
+              "short_name": "OUT_output_e6",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              },
+              "attributes": {
+                "UUID": "7e871624-1585-5f9a-1fa7-7dea698e606c"
+              }
+            }
+          ],
+          "attributes": {
+            "UUID": "87064d55-aefb-5e85-396d-3d2dca541582"
+          }
+        },
+        {
+          "name": "foo",
+          "min_interval": "1.0",
+          "concurrent": "true",
+          "data_read_access": [],
+          "data_write_access": [],
+          "attributes": {
+            "UUID": "61110903-9d81-4c0e-ba59-920f72426eee"
+          }
+        }
+      ],
+      "attributes": {
+        "UUID": "ae559468-4b08-5457-3887-2da711222da5"
+      }
+    },
+    {
+      "behavior": "bhv",
+      "handle_termination_and_restart": "N/A",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "twosec",
+          "attributes": {
+            "UUID": "5bdd54d5-50ae-4ad3-bdea-e0b0ab2bcab6"
+          },
+          "period": "0.2"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "step",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [],
+          "data_write_access": [],
+          "attributes": {
+            "UUID": "27c1ce26-d5b5-463c-b68a-dfaf8a93e3f7"
+          }
+        }
+      ],
+      "attributes": {
+        "UUID": "ceacfdb7-a098-49b8-b405-c1368977ed9d"
+      }
+    }
+  ],
+  "diagnostic": [],
+  "error_definitions": [],
+  "resource": [],
+  "system_mappings": [],
+  "communication": {
+    "i_signals": [],
+    "i_signal_ipdus": []
+  },
+  "full_generic_parse": {
+    "tag": "AUTOSAR",
+    "attributes": {
+      "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://autosar.org/schema/r4.0 autosar_4-0-3.xsd"
+    },
+    "children": [
+      {
+        "tag": "AR-PACKAGES",
+        "children": [
+          {
+            "tag": "AR-PACKAGE",
+            "attributes": {
+              "UUID": "272bbb53-1503-4d35-8455-e222545bbd63"
+            },
+            "children": [
+              {
+                "tag": "SHORT-NAME",
+                "text": "pkg"
+              },
+              {
+                "tag": "AR-PACKAGES",
+                "children": [
+                  {
+                    "tag": "AR-PACKAGE",
+                    "attributes": {
+                      "UUID": "4f87a323-9d72-5246-dfba-5e1319cb90e2"
+                    },
+                    "children": [
+                      {
+                        "tag": "SHORT-NAME",
+                        "text": "tst002"
+                      },
+                      {
+                        "tag": "ELEMENTS",
+                        "children": [
+                          {
+                            "tag": "APPLICATION-SW-COMPONENT-TYPE",
+                            "attributes": {
+                              "UUID": "c3d6eca3-6282-59f2-9537-ad8e4d3cd4b4"
+                            },
+                            "children": [
+                              {
+                                "tag": "SHORT-NAME",
+                                "text": "swc001"
+                              },
+                              {
+                                "tag": "PORTS",
+                                "children": [
+                                  {
+                                    "tag": "R-PORT-PROTOTYPE",
+                                    "attributes": {
+                                      "UUID": "1df5fb6e-920f-55ff-4480-8badeb6bf13f"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "in"
+                                      },
+                                      {
+                                        "tag": "REQUIRED-COM-SPECS",
+                                        "children": [
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e1"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "DefaultInitValue_e1"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/C42"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e2"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "DefaultInitValu_76a35ae5448e6270"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/C0p89"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e3"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "init"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/ZERO"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e4"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "DefaultInitValu_0147db48be8e2d8b"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/CInit_array2"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e5"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "DefaultInitValue_struc001"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/CInit_struc001"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "NONQUEUED-RECEIVER-COM-SPEC",
+                                            "children": [
+                                              {
+                                                "tag": "DATA-ELEMENT-REF",
+                                                "attributes": {
+                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                },
+                                                "text": "/pkg/interfaces/iRcv/e6"
+                                              },
+                                              {
+                                                "tag": "HANDLE-OUT-OF-RANGE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "USES-END-TO-END-PROTECTION",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "ALIVE-TIMEOUT",
+                                                "text": "60.0"
+                                              },
+                                              {
+                                                "tag": "ENABLE-UPDATE",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-NEVER-RECEIVED",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "HANDLE-TIMEOUT-TYPE",
+                                                "text": "NONE"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE",
+                                                "children": [
+                                                  {
+                                                    "tag": "CONSTANT-REFERENCE",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-LABEL",
+                                                        "text": "DefaultInitValue_Enum001"
+                                                      },
+                                                      {
+                                                        "tag": "CONSTANT-REF",
+                                                        "attributes": {
+                                                          "DEST": "CONSTANT-SPECIFICATION"
+                                                        },
+                                                        "text": "/pkg/types/constants/RED"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "REQUIRED-INTERFACE-TREF",
+                                        "attributes": {
+                                          "DEST": "SENDER-RECEIVER-INTERFACE"
+                                        },
+                                        "text": "/pkg/interfaces/iRcv"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "P-PORT-PROTOTYPE",
+                                    "attributes": {
+                                      "UUID": "045ca2ac-402e-518f-602a-38217edeedb0"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "out"
+                                      },
+                                      {
+                                        "tag": "PROVIDED-INTERFACE-TREF",
+                                        "attributes": {
+                                          "DEST": "SENDER-RECEIVER-INTERFACE"
+                                        },
+                                        "text": "/pkg/interfaces/iSend"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "P-PORT-PROTOTYPE",
+                                    "attributes": {
+                                      "UUID": "5277f9f2-5e54-4682-8685-71dca6ffa774"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "pport"
+                                      },
+                                      {
+                                        "tag": "PROVIDED-INTERFACE-TREF",
+                                        "attributes": {
+                                          "DEST": "CLIENT-SERVER-INTERFACE"
+                                        },
+                                        "text": "/pkg/interfaces/iOperations"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "R-PORT-PROTOTYPE",
+                                    "attributes": {
+                                      "UUID": "cff41748-16e3-40d5-b898-aeca00846138"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "rport"
+                                      },
+                                      {
+                                        "tag": "REQUIRED-INTERFACE-TREF",
+                                        "attributes": {
+                                          "DEST": "CLIENT-SERVER-INTERFACE"
+                                        },
+                                        "text": "/pkg/interfaces/iServer"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "R-PORT-PROTOTYPE",
+                                    "attributes": {
+                                      "UUID": "bec58be4-f65a-410c-8756-534d3eb12315"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "rmode"
+                                      },
+                                      {
+                                        "tag": "REQUIRED-INTERFACE-TREF",
+                                        "attributes": {
+                                          "DEST": "MODE-SWITCH-INTERFACE"
+                                        },
+                                        "text": "/pkg/interfaces/iEcuMode"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "INTERNAL-BEHAVIORS",
+                                "children": [
+                                  {
+                                    "tag": "SWC-INTERNAL-BEHAVIOR",
+                                    "attributes": {
+                                      "UUID": "ae559468-4b08-5457-3887-2da711222da5"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "bhv001"
+                                      },
+                                      {
+                                        "tag": "DATA-TYPE-MAPPING-REFS",
+                                        "children": [
+                                          {
+                                            "tag": "DATA-TYPE-MAPPING-REF",
+                                            "attributes": {
+                                              "DEST": "DATA-TYPE-MAPPING-SET"
+                                            },
+                                            "text": "/pkg/types/mapping/pkgDataTypeMappingsSet"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "EVENTS",
+                                        "children": [
+                                          {
+                                            "tag": "TIMING-EVENT",
+                                            "attributes": {
+                                              "UUID": "e35550b3-c853-579a-c5e9-30e1da15143f"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "onesec"
+                                              },
+                                              {
+                                                "tag": "START-ON-EVENT-REF",
+                                                "attributes": {
+                                                  "DEST": "RUNNABLE-ENTITY"
+                                                },
+                                                "text": "/pkg/tst002/swc001/bhv001/step"
+                                              },
+                                              {
+                                                "tag": "PERIOD",
+                                                "text": "0.1"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "OPERATION-INVOKED-EVENT",
+                                            "attributes": {
+                                              "UUID": "cd63b68e-b9b7-4829-ad51-c9d326f8657e"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "call_foo"
+                                              },
+                                              {
+                                                "tag": "START-ON-EVENT-REF",
+                                                "attributes": {
+                                                  "DEST": "RUNNABLE-ENTITY"
+                                                },
+                                                "text": "/pkg/tst002/swc001/bhv001/foo"
+                                              },
+                                              {
+                                                "tag": "OPERATION-IREF",
+                                                "attributes": {
+                                                  "S": "providedOperation"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "tag": "CONTEXT-P-PORT-REF",
+                                                    "attributes": {
+                                                      "DEST": "P-PORT-PROTOTYPE"
+                                                    },
+                                                    "text": "/pkg/tst002/swc001/pport"
+                                                  },
+                                                  {
+                                                    "tag": "TARGET-PROVIDED-OPERATION-REF",
+                                                    "attributes": {
+                                                      "DEST": "CLIENT-SERVER-OPERATION"
+                                                    },
+                                                    "text": "/pkg/interfaces/iOperations/foo"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "SWC-MODE-SWITCH-EVENT",
+                                            "attributes": {
+                                              "S": "",
+                                              "UUID": "71858a8b-8332-491b-b303-dfcda17a49d8"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "on_init"
+                                              },
+                                              {
+                                                "tag": "START-ON-EVENT-REF",
+                                                "attributes": {
+                                                  "DEST": "RUNNABLE-ENTITY"
+                                                },
+                                                "text": "/pkg/tst002/swc001/bhv001/init"
+                                              },
+                                              {
+                                                "tag": "ACTIVATION",
+                                                "text": "ON-ENTRY"
+                                              },
+                                              {
+                                                "tag": "MODE-IREFS",
+                                                "children": [
+                                                  {
+                                                    "tag": "MODE-IREF",
+                                                    "children": [
+                                                      {
+                                                        "tag": "CONTEXT-PORT-REF",
+                                                        "attributes": {
+                                                          "DEST": "R-PORT-PROTOTYPE"
+                                                        },
+                                                        "text": "/pkg/tst002/swc001/rmode"
+                                                      },
+                                                      {
+                                                        "tag": "CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF",
+                                                        "attributes": {
+                                                          "DEST": "MODE-DECLARATION-GROUP-PROTOTYPE"
+                                                        },
+                                                        "text": "/pkg/interfaces/iEcuMode/currentMode"
+                                                      },
+                                                      {
+                                                        "tag": "TARGET-MODE-DECLARATION-REF",
+                                                        "attributes": {
+                                                          "DEST": "MODE-DECLARATION"
+                                                        },
+                                                        "text": "/pkg/interfaces/EcuMode/Init"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "HANDLE-TERMINATION-AND-RESTART",
+                                        "text": "NO-SUPPORT"
+                                      },
+                                      {
+                                        "tag": "PER-INSTANCE-MEMORYS",
+                                        "children": [
+                                          {
+                                            "tag": "PER-INSTANCE-MEMORY",
+                                            "attributes": {
+                                              "UUID": "9a9332f4-dc67-4484-ad7b-80c47f9f7208"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "pim_one"
+                                              },
+                                              {
+                                                "tag": "INIT-VALUE"
+                                              },
+                                              {
+                                                "tag": "TYPE",
+                                                "text": "Int_n320to320"
+                                              },
+                                              {
+                                                "tag": "TYPE-DEFINITION",
+                                                "text": "/pkg/types/app/Int_n320to320"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "RUNNABLES",
+                                        "children": [
+                                          {
+                                            "tag": "RUNNABLE-ENTITY",
+                                            "attributes": {
+                                              "UUID": "e2191d75-88f2-59d4-b44d-808507df3592"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "init"
+                                              },
+                                              {
+                                                "tag": "MINIMUM-START-INTERVAL",
+                                                "text": "0.0"
+                                              },
+                                              {
+                                                "tag": "CAN-BE-INVOKED-CONCURRENTLY",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "SYMBOL",
+                                                "text": "init"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "RUNNABLE-ENTITY",
+                                            "attributes": {
+                                              "UUID": "87064d55-aefb-5e85-396d-3d2dca541582"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "step"
+                                              },
+                                              {
+                                                "tag": "MINIMUM-START-INTERVAL",
+                                                "text": "0.0"
+                                              },
+                                              {
+                                                "tag": "CAN-BE-INVOKED-CONCURRENTLY",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "DATA-READ-ACCESSS",
+                                                "children": [
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "dd52cdf0-1064-5bd5-d9d1-6fc8dc379a43"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e1"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e1"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "5341c68b-063b-5e84-6eb7-f0e594cf622d"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e2"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e2"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "d48516e8-ea5a-5caf-e291-474ee85d39dc"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e3"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e3"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "b7e86dd3-5e12-5f59-20cd-7b6dd2eb43c7"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e4"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e4"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "3d8aaba0-f614-5d95-c080-a9fdbbba7720"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e5"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e5"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "5bb61675-0656-5f55-caf5-b982a4e0b9f6"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "IN_input_e6"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "R-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/in"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iRcv/e6"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "tag": "DATA-WRITE-ACCESSS",
+                                                "children": [
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "6f92736b-a69e-553c-d184-0433d42e2105"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e1"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e1"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "7d19b7e0-be8a-583f-588e-212ce9b952eb"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e2"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e2"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "82e61267-d783-5ba9-2c0a-a3d68dfeb9cc"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e3"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e3"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "58d124bc-759f-5be6-22d0-1018ecdd4090"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e4"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e4"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "67b62b1e-646c-506e-f959-1a5a84b08769"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e5"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e5"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "tag": "VARIABLE-ACCESS",
+                                                    "attributes": {
+                                                      "UUID": "7e871624-1585-5f9a-1fa7-7dea698e606c"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "OUT_output_e6"
+                                                      },
+                                                      {
+                                                        "tag": "ACCESSED-VARIABLE",
+                                                        "children": [
+                                                          {
+                                                            "tag": "AUTOSAR-VARIABLE-IREF",
+                                                            "children": [
+                                                              {
+                                                                "tag": "PORT-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "P-PORT-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/tst002/swc001/out"
+                                                              },
+                                                              {
+                                                                "tag": "TARGET-DATA-PROTOTYPE-REF",
+                                                                "attributes": {
+                                                                  "DEST": "VARIABLE-DATA-PROTOTYPE"
+                                                                },
+                                                                "text": "/pkg/interfaces/iSend/e6"
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "tag": "SYMBOL",
+                                                "text": "step"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "tag": "RUNNABLE-ENTITY",
+                                            "attributes": {
+                                              "UUID": "61110903-9d81-4c0e-ba59-920f72426eee"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "foo"
+                                              },
+                                              {
+                                                "tag": "ADMIN-DATA",
+                                                "children": [
+                                                  {
+                                                    "tag": "SDGS",
+                                                    "children": [
+                                                      {
+                                                        "tag": "SDG",
+                                                        "attributes": {
+                                                          "GID": "_conversion"
+                                                        },
+                                                        "children": [
+                                                          {
+                                                            "tag": "SDG",
+                                                            "attributes": {
+                                                              "GID": "REENTRANCY-LEVEL"
+                                                            },
+                                                            "children": [
+                                                              {
+                                                                "tag": "SD",
+                                                                "attributes": {
+                                                                  "GID": "_mixed"
+                                                                },
+                                                                "text": "NON-REENTRANT"
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "tag": "SD",
+                                                            "attributes": {
+                                                              "GID": "_path"
+                                                            },
+                                                            "text": "REENTRANCY-LEVEL@3/"
+                                                          },
+                                                          {
+                                                            "tag": "SD",
+                                                            "attributes": {
+                                                              "GID": "_target"
+                                                            },
+                                                            "text": "org.artop.aal.autosar411"
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "tag": "MINIMUM-START-INTERVAL",
+                                                "text": "1.0"
+                                              },
+                                              {
+                                                "tag": "CAN-BE-INVOKED-CONCURRENTLY",
+                                                "text": "true"
+                                              },
+                                              {
+                                                "tag": "SERVER-CALL-POINTS",
+                                                "children": [
+                                                  {
+                                                    "tag": "ASYNCHRONOUS-SERVER-CALL-POINT",
+                                                    "attributes": {
+                                                      "S": "",
+                                                      "UUID": "27f58f83-1d93-44fc-ae78-b51c399ee66d"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "tag": "SHORT-NAME",
+                                                        "text": "asyncCallBar"
+                                                      },
+                                                      {
+                                                        "tag": "CATEGORY"
+                                                      },
+                                                      {
+                                                        "tag": "OPERATION-IREF",
+                                                        "attributes": {
+                                                          "S": "requiredOperation"
+                                                        },
+                                                        "children": [
+                                                          {
+                                                            "tag": "CONTEXT-R-PORT-REF",
+                                                            "attributes": {
+                                                              "DEST": "R-PORT-PROTOTYPE"
+                                                            },
+                                                            "text": "/pkg/tst002/swc001/rport"
+                                                          },
+                                                          {
+                                                            "tag": "TARGET-REQUIRED-OPERATION-REF",
+                                                            "attributes": {
+                                                              "DEST": "CLIENT-SERVER-OPERATION"
+                                                            },
+                                                            "text": "/pkg/interfaces/iServer/bar"
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "tag": "TIMEOUT",
+                                                        "text": "0.1"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "tag": "SYMBOL",
+                                                "text": "foo"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "SUPPORTS-MULTIPLE-INSTANTIATION",
+                                        "text": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "APPLICATION-SW-COMPONENT-TYPE",
+                            "attributes": {
+                              "UUID": "81902963-0892-4af2-8bf6-a929a746f9a5"
+                            },
+                            "children": [
+                              {
+                                "tag": "SHORT-NAME",
+                                "text": "swc002"
+                              },
+                              {
+                                "tag": "INTERNAL-BEHAVIORS",
+                                "children": [
+                                  {
+                                    "tag": "SWC-INTERNAL-BEHAVIOR",
+                                    "attributes": {
+                                      "UUID": "ceacfdb7-a098-49b8-b405-c1368977ed9d"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "SHORT-NAME",
+                                        "text": "bhv"
+                                      },
+                                      {
+                                        "tag": "EVENTS",
+                                        "children": [
+                                          {
+                                            "tag": "TIMING-EVENT",
+                                            "attributes": {
+                                              "UUID": "5bdd54d5-50ae-4ad3-bdea-e0b0ab2bcab6"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "twosec"
+                                              },
+                                              {
+                                                "tag": "START-ON-EVENT-REF",
+                                                "attributes": {
+                                                  "DEST": "RUNNABLE-ENTITY"
+                                                },
+                                                "text": "/pkg/tst002/swc002/bhv/step"
+                                              },
+                                              {
+                                                "tag": "PERIOD",
+                                                "text": "0.2"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "RUNNABLES",
+                                        "children": [
+                                          {
+                                            "tag": "RUNNABLE-ENTITY",
+                                            "attributes": {
+                                              "UUID": "27c1ce26-d5b5-463c-b68a-dfaf8a93e3f7"
+                                            },
+                                            "children": [
+                                              {
+                                                "tag": "SHORT-NAME",
+                                                "text": "step"
+                                              },
+                                              {
+                                                "tag": "MINIMUM-START-INTERVAL",
+                                                "text": "0.0"
+                                              },
+                                              {
+                                                "tag": "CAN-BE-INVOKED-CONCURRENTLY",
+                                                "text": "false"
+                                              },
+                                              {
+                                                "tag": "SYMBOL",
+                                                "text": "step"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "tag": "SUPPORTS-MULTIPLE-INSTANTIATION",
+                                        "text": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
