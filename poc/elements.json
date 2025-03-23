@@ -1,0 +1,29 @@
+{
+    "elements": {
+        "ECU": {
+            "description": "Electronic Control Unit",
+            "visual": "RoundedRectangle",
+            "color": "#FFD700"
+        },
+        "SW-COMPONENT": {
+            "description": "Software Component",
+            "visual": "Rectangle",
+            "color": "#87CEEB"
+        },
+        "PORT": {
+            "description": "Communication Port",
+            "visual": "Circle",
+            "color": "#32CD32"
+        },
+        "DATA-TYPE": {
+            "description": "Data Type",
+            "visual": "Ellipse",
+            "color": "#FF4500"
+        },
+        "UNKNOWN": {
+            "description": "Unknown Element",
+            "visual": "Hexagon",
+            "color": "#808080"
+        }
+    }
+}

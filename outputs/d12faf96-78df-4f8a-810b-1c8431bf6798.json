@@ -1,0 +1,206 @@
+{
+  "system_overview": {
+    "system_name": "EDCEcuExtract",
+    "system_type": "ECU_EXTRACT",
+    "swc_count": 4,
+    "interface_count": 4,
+    "signal_count": 4,
+    "connector_count": 6
+  },
+  "swcs": [
+    {
+      "name": "DoorLeft",
+      "uuid": "0d9d3407-5a9c-33f3-84b4-9080804a4ad0",
+      "function": "N/A"
+    },
+    {
+      "name": "DoorRight",
+      "uuid": "8b499a52-aea4-3b6a-a1bc-f52dbc9c776c",
+      "function": "N/A"
+    },
+    {
+      "name": "Control",
+      "uuid": "89c6bf8e-984f-376e-ad33-607d91e5a6ab",
+      "function": "N/A"
+    },
+    {
+      "name": "IO",
+      "uuid": "c4d885db-369c-3268-bdaf-521bdf1887ab",
+      "function": "N/A"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "DoorStatus",
+      "uuid": "1aa75fd5-0de9-3040-bdb6-cd3cf3d3964e",
+      "type": "Sender/Receiver"
+    },
+    {
+      "name": "CombinedStatus",
+      "uuid": "ac79088e-db77-300d-b6bf-72580349ffb0",
+      "type": "Sender/Receiver"
+    },
+    {
+      "name": "DigitalServiceWrite",
+      "uuid": "3134600e-be9d-377d-bdba-008a5441a7e2",
+      "type": "Client/Server"
+    },
+    {
+      "name": "DoorCommands",
+      "uuid": "0fc0e7ac-fbe4-3814-94c3-69077a1f35f3",
+      "type": "Client/Server"
+    }
+  ],
+  "signals": [
+    {
+      "name": "CombinedStatusLockedLeftISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusLockedLeftSSig"
+    },
+    {
+      "name": "CombinedStatusOpenLeftISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusOpenLeftSSig"
+    },
+    {
+      "name": "CombinedStatusLockedRightISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusLockedRightSSig"
+    },
+    {
+      "name": "CombinedStatusOpenRightISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusOpenRightSSig"
+    }
+  ],
+  "connectors": [
+    {
+      "name": "DoorLeft_Command_to_Control_CommandsLeft",
+      "provider": "DoorLeft",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorRight_Command_to_Control_CommandsRight",
+      "provider": "DoorRight",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorLeft_Status_to_Control_StatusLeft",
+      "provider": "DoorLeft",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorRight_Status_to_Control_StatusRight",
+      "provider": "DoorRight",
+      "requester": "Control"
+    },
+    {
+      "name": "IO_Digital_Led_to_Control_Led",
+      "provider": "IO",
+      "requester": "Control"
+    },
+    {
+      "name": "CombinedStatus_delegate_connector0",
+      "provider": "CombinedStatus",
+      "requester": "CombinedStatus"
+    }
+  ],
+  "functional": [
+    {
+      "behavior": "DoorInternals",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "timingEvent_0_1",
+          "period": "0.1"
+        },
+        {
+          "type": "OPERATION-INVOKED-EVENT",
+          "name": "Command_SetLock"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "DoorMain",
+          "min_interval": "0.0",
+          "concurrent": "false"
+        },
+        {
+          "name": "SetLocked",
+          "min_interval": "0.0",
+          "concurrent": "false"
+        }
+      ]
+    },
+    {
+      "behavior": "IoHwAbBehavior",
+      "events": [
+        {
+          "type": "OPERATION-INVOKED-EVENT",
+          "name": "Digital_Led_Write"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "DigitalWrite",
+          "min_interval": "0.0",
+          "concurrent": "true"
+        }
+      ]
+    },
+    {
+      "behavior": "DoorControlInternals",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "timingEvent_0_1",
+          "period": "0.1"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "Main",
+          "min_interval": "0.0",
+          "concurrent": "false"
+        }
+      ]
+    }
+  ],
+  "diagnostic": [
+    {
+      "interface": "DigitalServiceWrite",
+      "errors": [
+        {
+          "name": "E_OK",
+          "code": "0"
+        },
+        {
+          "name": "E_NOT_OK",
+          "code": "1"
+        }
+      ]
+    }
+  ],
+  "error_definitions": [
+    {
+      "interface": "DigitalServiceWrite",
+      "error_name": "E_OK",
+      "error_code": "0"
+    },
+    {
+      "interface": "DigitalServiceWrite",
+      "error_name": "E_NOT_OK",
+      "error_code": "1"
+    }
+  ],
+  "resource": [
+    {
+      "component": "DoorImplementation",
+      "resource_consumption": "resourceConsumption"
+    },
+    {
+      "component": "IoHwAbImpl",
+      "resource_consumption": "resourceConsumption"
+    },
+    {
+      "component": "DoorControlImplementation",
+      "resource_consumption": "resourceConsumption"
+    }
+  ]
+}

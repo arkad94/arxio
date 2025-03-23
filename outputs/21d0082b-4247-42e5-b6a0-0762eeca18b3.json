@@ -1,0 +1,726 @@
+{
+  "system_overview": {
+    "system_name": "EDCEcuExtract",
+    "system_type": "ECU_EXTRACT"
+  },
+  "package_structure": [
+    {
+      "short_name": "Demo",
+      "elements": [],
+      "packages": [
+        {
+          "short_name": "Door",
+          "elements": [
+            {
+              "tag": "APPLICATION-SW-COMPONENT-TYPE",
+              "short_name": "Door",
+              "uuid": "2dbc5fd9-e3c1-3151-a0e4-b723a660be32"
+            },
+            {
+              "tag": "SWC-IMPLEMENTATION",
+              "short_name": "DoorImplementation",
+              "uuid": "0854a69e-6bbb-3735-80a1-2345b6c7942e"
+            }
+          ],
+          "packages": []
+        },
+        {
+          "short_name": "Services",
+          "elements": [],
+          "packages": [
+            {
+              "short_name": "IoHwAb",
+              "elements": [
+                {
+                  "tag": "IMPLEMENTATION-DATA-TYPE",
+                  "short_name": "IoHwAb_SignalType_",
+                  "uuid": "6e499ceb-e086-39a3-a8aa-cad156c2235d"
+                },
+                {
+                  "tag": "APPLICATION-PRIMITIVE-DATA-TYPE",
+                  "short_name": "dummy_IoHwAb_SignalType_",
+                  "uuid": "8968fc96-1503-316f-ba51-1e3d7e72eaae"
+                },
+                {
+                  "tag": "DATA-TYPE-MAPPING-SET",
+                  "short_name": "dummyMappingSet",
+                  "uuid": "280a6153-330a-3898-bc36-1586c4372f47"
+                },
+                {
+                  "tag": "IMPLEMENTATION-DATA-TYPE",
+                  "short_name": "SignalQuality",
+                  "uuid": "db4b6add-7698-3ee4-9dae-adaa7488c81a"
+                },
+                {
+                  "tag": "COMPU-METHOD",
+                  "short_name": "SignalQuality_def",
+                  "uuid": "b846afca-e52e-31cd-8e75-8cd16e26e46f"
+                },
+                {
+                  "tag": "IMPLEMENTATION-DATA-TYPE",
+                  "short_name": "DigitalLevel",
+                  "uuid": "ce7d4658-6239-3091-8e78-7747c6a4fdfd"
+                },
+                {
+                  "tag": "COMPU-METHOD",
+                  "short_name": "DigitalLevel_def",
+                  "uuid": "f716328f-e783-329b-a342-af0ccd060cef"
+                },
+                {
+                  "tag": "CLIENT-SERVER-INTERFACE",
+                  "short_name": "DigitalServiceWrite",
+                  "uuid": "3134600e-be9d-377d-bdba-008a5441a7e2"
+                },
+                {
+                  "tag": "SERVICE-SW-COMPONENT-TYPE",
+                  "short_name": "IoHwAb",
+                  "uuid": "c97e31d8-af34-3dd0-9392-52e0287af468"
+                },
+                {
+                  "tag": "SWC-IMPLEMENTATION",
+                  "short_name": "IoHwAbImpl",
+                  "uuid": "943c7691-0acc-341e-b272-c0a71a5c8cba"
+                }
+              ],
+              "packages": []
+            }
+          ]
+        },
+        {
+          "short_name": "Interfaces",
+          "elements": [
+            {
+              "tag": "SENDER-RECEIVER-INTERFACE",
+              "short_name": "DoorStatus",
+              "uuid": "1aa75fd5-0de9-3040-bdb6-cd3cf3d3964e"
+            },
+            {
+              "tag": "CLIENT-SERVER-INTERFACE",
+              "short_name": "DoorCommands",
+              "uuid": "0fc0e7ac-fbe4-3814-94c3-69077a1f35f3"
+            },
+            {
+              "tag": "SENDER-RECEIVER-INTERFACE",
+              "short_name": "CombinedStatus",
+              "uuid": "ac79088e-db77-300d-b6bf-72580349ffb0"
+            }
+          ],
+          "packages": []
+        },
+        {
+          "short_name": "DoorControl",
+          "elements": [
+            {
+              "tag": "APPLICATION-SW-COMPONENT-TYPE",
+              "short_name": "DoorControl",
+              "uuid": "01ed669d-6d02-35c0-9433-9b2acdd49751"
+            },
+            {
+              "tag": "SWC-IMPLEMENTATION",
+              "short_name": "DoorControlImplementation",
+              "uuid": "219f3a51-31ab-3858-87ed-16e0299c4f28"
+            }
+          ],
+          "packages": []
+        },
+        {
+          "short_name": "EDC",
+          "elements": [
+            {
+              "tag": "COMPOSITION-SW-COMPONENT-TYPE",
+              "short_name": "EDC",
+              "uuid": "034525f7-3ff6-33b2-a2b2-56321b03e240"
+            },
+            {
+              "tag": "SYSTEM",
+              "short_name": "EDCEcuExtract",
+              "uuid": "76a90898-1abb-44ea-9f66-df8486e35a2e"
+            }
+          ],
+          "packages": [
+            {
+              "short_name": "SystemSignals",
+              "elements": [
+                {
+                  "tag": "SYSTEM-SIGNAL",
+                  "short_name": "CombinedStatusLockedLeftSSig",
+                  "uuid": "c4811a00-69c8-4728-917c-e457c27ff634"
+                },
+                {
+                  "tag": "SYSTEM-SIGNAL",
+                  "short_name": "CombinedStatusOpenLeftSSig",
+                  "uuid": "14babacb-ba03-47e2-8ba9-082f5e96cb2e"
+                },
+                {
+                  "tag": "SYSTEM-SIGNAL",
+                  "short_name": "CombinedStatusLockedRightSSig",
+                  "uuid": "0fbdc633-0325-43a4-aad9-94a561e5641f"
+                },
+                {
+                  "tag": "SYSTEM-SIGNAL",
+                  "short_name": "CombinedStatusOpenRightSSig",
+                  "uuid": "225a0314-2688-42f9-8134-b0815975dd5e"
+                }
+              ],
+              "packages": []
+            },
+            {
+              "short_name": "Communication",
+              "elements": [
+                {
+                  "tag": "I-SIGNAL",
+                  "short_name": "CombinedStatusLockedLeftISig",
+                  "uuid": "367f345e-2e71-4ee9-b986-b12f0b595e25"
+                },
+                {
+                  "tag": "I-SIGNAL-I-PDU",
+                  "short_name": "CombinedStatusLockedLeftIPdu",
+                  "uuid": "a8e6243d-3672-4024-9196-666863d7a492"
+                },
+                {
+                  "tag": "I-SIGNAL",
+                  "short_name": "CombinedStatusOpenLeftISig",
+                  "uuid": "be04e28c-d2af-4709-b308-1e399ccd930d"
+                },
+                {
+                  "tag": "I-SIGNAL-I-PDU",
+                  "short_name": "CombinedStatusOpenLeftIPdu",
+                  "uuid": "0b5e696b-ac49-4403-83de-19182302cdb6"
+                },
+                {
+                  "tag": "I-SIGNAL",
+                  "short_name": "CombinedStatusLockedRightISig",
+                  "uuid": "31c4d740-ce00-420a-a0d1-8dd3d4f49871"
+                },
+                {
+                  "tag": "I-SIGNAL-I-PDU",
+                  "short_name": "CombinedStatusLockedRightIPdu",
+                  "uuid": "e2aed00f-acef-4118-867f-4e0726f26610"
+                },
+                {
+                  "tag": "I-SIGNAL",
+                  "short_name": "CombinedStatusOpenRightISig",
+                  "uuid": "49b53301-aba1-4ccc-935c-792a9dece0a8"
+                },
+                {
+                  "tag": "I-SIGNAL-I-PDU",
+                  "short_name": "CombinedStatusOpenRightIPdu",
+                  "uuid": "de0dcabd-13d5-4ada-994e-332046f64c71"
+                }
+              ],
+              "packages": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "swcs": [
+    {
+      "name": "Door",
+      "uuid": "2dbc5fd9-e3c1-3151-a0e4-b723a660be32",
+      "ports": [
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "Status",
+          "uuid": "9dc49b58-a185-36d4-8594-1e564711dd28",
+          "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "Command",
+          "uuid": "48d04d5b-cf28-3086-80a1-8712384b653f",
+          "interface_ref": "/Demo/Interfaces/DoorCommands"
+        }
+      ]
+    },
+    {
+      "name": "DoorControl",
+      "uuid": "01ed669d-6d02-35c0-9433-9b2acdd49751",
+      "ports": [
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "StatusLeft",
+          "uuid": "3179e3a7-1b49-3950-86db-d5c615049fb4",
+          "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "StatusRight",
+          "uuid": "6f3c8fac-0a52-381b-a69a-9387a3306235",
+          "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "CommandsLeft",
+          "uuid": "f4d8a3f8-863b-350a-a7b3-58e627e2e373",
+          "interface_ref": "/Demo/Interfaces/DoorCommands"
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "CommandsRight",
+          "uuid": "f5508438-caf6-31e3-9dd4-dbeb1dc46417",
+          "interface_ref": "/Demo/Interfaces/DoorCommands"
+        },
+        {
+          "port_type": "R-PORT-PROTOTYPE",
+          "short_name": "Led",
+          "uuid": "44652102-e3c2-3674-a07b-5b8a3294a3de",
+          "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
+        },
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "CombinedStatus",
+          "uuid": "5a63577a-a4d8-342f-8daf-d7cf49be95b3",
+          "interface_ref": "/Demo/Interfaces/CombinedStatus"
+        }
+      ]
+    },
+    {
+      "name": "IoHwAb",
+      "uuid": "c97e31d8-af34-3dd0-9392-52e0287af468",
+      "ports": [
+        {
+          "port_type": "P-PORT-PROTOTYPE",
+          "short_name": "Digital_Led",
+          "uuid": "48892b28-c309-3dea-8d9f-988a97beb6f6",
+          "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
+        }
+      ]
+    }
+  ],
+  "swc_count": 3,
+  "interfaces": [
+    {
+      "name": "DoorStatus",
+      "uuid": "1aa75fd5-0de9-3040-bdb6-cd3cf3d3964e",
+      "type": "Sender/Receiver",
+      "data_elements": [
+        {
+          "name": "Locked",
+          "uuid": "1801e168-fcc8-362f-b5f0-3a7f5d392a9b",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        },
+        {
+          "name": "Open",
+          "uuid": "ed09ee66-7aa2-335d-b6d5-cc88d496f5ce",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        }
+      ]
+    },
+    {
+      "name": "CombinedStatus",
+      "uuid": "ac79088e-db77-300d-b6bf-72580349ffb0",
+      "type": "Sender/Receiver",
+      "data_elements": [
+        {
+          "name": "LockedLeft",
+          "uuid": "a4fbcfbd-24e9-3222-9fbe-be25ac6e9740",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        },
+        {
+          "name": "OpenLeft",
+          "uuid": "080e1423-0f5b-3f2f-83e8-25b9c81d65ef",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        },
+        {
+          "name": "LockedRight",
+          "uuid": "3c81145a-4f69-3436-8b28-a9edf9359d90",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        },
+        {
+          "name": "OpenRight",
+          "uuid": "6f5961a2-003e-3845-8369-62d2f365fa8c",
+          "type_ref": "/ArcCore/Platform/ImplementationDataTypes/boolean"
+        }
+      ]
+    },
+    {
+      "name": "DigitalServiceWrite",
+      "uuid": "3134600e-be9d-377d-bdba-008a5441a7e2",
+      "type": "Client/Server",
+      "data_elements": []
+    },
+    {
+      "name": "DoorCommands",
+      "uuid": "0fc0e7ac-fbe4-3814-94c3-69077a1f35f3",
+      "type": "Client/Server",
+      "data_elements": []
+    }
+  ],
+  "interface_count": 4,
+  "signals": [
+    {
+      "name": "CombinedStatusLockedLeftISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusLockedLeftSSig"
+    },
+    {
+      "name": "CombinedStatusOpenLeftISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusOpenLeftSSig"
+    },
+    {
+      "name": "CombinedStatusLockedRightISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusLockedRightSSig"
+    },
+    {
+      "name": "CombinedStatusOpenRightISig",
+      "mapped_signal": "/Demo/EDC/SystemSignals/CombinedStatusOpenRightSSig"
+    }
+  ],
+  "signal_count": 4,
+  "connectors": [
+    {
+      "name": "DoorLeft_Command_to_Control_CommandsLeft",
+      "provider": "DoorLeft",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorRight_Command_to_Control_CommandsRight",
+      "provider": "DoorRight",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorLeft_Status_to_Control_StatusLeft",
+      "provider": "DoorLeft",
+      "requester": "Control"
+    },
+    {
+      "name": "DoorRight_Status_to_Control_StatusRight",
+      "provider": "DoorRight",
+      "requester": "Control"
+    },
+    {
+      "name": "IO_Digital_Led_to_Control_Led",
+      "provider": "IO",
+      "requester": "Control"
+    },
+    {
+      "name": "CombinedStatus_delegate_connector0",
+      "provider": "CombinedStatus",
+      "requester": "CombinedStatus"
+    }
+  ],
+  "connector_count": 6,
+  "functional": [
+    {
+      "behavior": "DoorInternals",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "timingEvent_0_1",
+          "period": "0.1"
+        },
+        {
+          "type": "OPERATION-INVOKED-EVENT",
+          "name": "Command_SetLock"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "DoorMain",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [],
+          "data_write_access": [
+            {
+              "short_name": "dataWriteAccess_DoorMain_Status_Locked",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataWriteAccess_DoorMain_Status_Open",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetLocked",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [],
+          "data_write_access": []
+        }
+      ]
+    },
+    {
+      "behavior": "IoHwAbBehavior",
+      "events": [
+        {
+          "type": "OPERATION-INVOKED-EVENT",
+          "name": "Digital_Led_Write"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "DigitalWrite",
+          "min_interval": "0.0",
+          "concurrent": "true",
+          "data_read_access": [],
+          "data_write_access": []
+        }
+      ]
+    },
+    {
+      "behavior": "DoorControlInternals",
+      "events": [
+        {
+          "type": "TIMING-EVENT",
+          "name": "timingEvent_0_1",
+          "period": "0.1"
+        }
+      ],
+      "runnables": [
+        {
+          "name": "Main",
+          "min_interval": "0.0",
+          "concurrent": "false",
+          "data_read_access": [
+            {
+              "short_name": "dataReadAccess_Main_StatusLeft_Locked",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataReadAccess_Main_StatusLeft_Open",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataReadAccess_Main_StatusRight_Locked",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataReadAccess_Main_StatusRight_Open",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            }
+          ],
+          "data_write_access": [
+            {
+              "short_name": "dataWriteAccess_Main_CombinedStatus_LockedLeft",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataWriteAccess_Main_CombinedStatus_OpenLeft",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataWriteAccess_Main_CombinedStatus_LockedRight",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            },
+            {
+              "short_name": "dataWriteAccess_Main_CombinedStatus_OpenRight",
+              "details": {
+                "port_ref": "N/A",
+                "target_data_ref": "N/A"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnostic": [
+    {
+      "interface": "DigitalServiceWrite",
+      "errors": [
+        {
+          "name": "E_OK",
+          "code": "0"
+        },
+        {
+          "name": "E_NOT_OK",
+          "code": "1"
+        }
+      ]
+    }
+  ],
+  "error_definitions": [
+    {
+      "interface": "DigitalServiceWrite",
+      "error_name": "E_OK",
+      "error_code": "0"
+    },
+    {
+      "interface": "DigitalServiceWrite",
+      "error_name": "E_NOT_OK",
+      "error_code": "1"
+    }
+  ],
+  "resource": [
+    {
+      "component": "DoorImplementation",
+      "resource_consumption": "resourceConsumption"
+    },
+    {
+      "component": "IoHwAbImpl",
+      "resource_consumption": "resourceConsumption"
+    },
+    {
+      "component": "DoorControlImplementation",
+      "resource_consumption": "resourceConsumption"
+    }
+  ],
+  "system_mappings": [
+    {
+      "short_name": "ImplementationMappings",
+      "sw_impl_mappings": [
+        {
+          "short_name": "DoorLeftMapping",
+          "component_impl_ref": "/Demo/Door/DoorImplementation",
+          "component_irefs": [
+            {
+              "context": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+              "target_component_ref": "/Demo/EDC/EDC/DoorLeft"
+            }
+          ]
+        },
+        {
+          "short_name": "DoorRightMapping",
+          "component_impl_ref": "/Demo/Door/DoorImplementation",
+          "component_irefs": [
+            {
+              "context": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+              "target_component_ref": "/Demo/EDC/EDC/DoorRight"
+            }
+          ]
+        },
+        {
+          "short_name": "ControlMapping",
+          "component_impl_ref": "/Demo/DoorControl/DoorControlImplementation",
+          "component_irefs": [
+            {
+              "context": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+              "target_component_ref": "/Demo/EDC/EDC/Control"
+            }
+          ]
+        },
+        {
+          "short_name": "IOMapping",
+          "component_impl_ref": "/Demo/Services/IoHwAb/IoHwAbImpl",
+          "component_irefs": [
+            {
+              "context": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+              "target_component_ref": "/Demo/EDC/EDC/IO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "short_name": "SignalMappings",
+      "sw_impl_mappings": [],
+      "data_mappings": [
+        {
+          "context_composition": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+          "target_data_prototype_ref": "/Demo/Interfaces/CombinedStatus/LockedLeft",
+          "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusLockedLeftSSig"
+        },
+        {
+          "context_composition": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+          "target_data_prototype_ref": "/Demo/Interfaces/CombinedStatus/OpenLeft",
+          "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusOpenLeftSSig"
+        },
+        {
+          "context_composition": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+          "target_data_prototype_ref": "/Demo/Interfaces/CombinedStatus/LockedRight",
+          "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusLockedRightSSig"
+        },
+        {
+          "context_composition": "/Demo/EDC/EDCEcuExtract/EDCPrototype",
+          "target_data_prototype_ref": "/Demo/Interfaces/CombinedStatus/OpenRight",
+          "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusOpenRightSSig"
+        }
+      ]
+    }
+  ],
+  "communication": {
+    "i_signals": [
+      {
+        "name": "CombinedStatusLockedLeftISig",
+        "uuid": "367f345e-2e71-4ee9-b986-b12f0b595e25",
+        "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusLockedLeftSSig"
+      },
+      {
+        "name": "CombinedStatusOpenLeftISig",
+        "uuid": "be04e28c-d2af-4709-b308-1e399ccd930d",
+        "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusOpenLeftSSig"
+      },
+      {
+        "name": "CombinedStatusLockedRightISig",
+        "uuid": "31c4d740-ce00-420a-a0d1-8dd3d4f49871",
+        "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusLockedRightSSig"
+      },
+      {
+        "name": "CombinedStatusOpenRightISig",
+        "uuid": "49b53301-aba1-4ccc-935c-792a9dece0a8",
+        "system_signal_ref": "/Demo/EDC/SystemSignals/CombinedStatusOpenRightSSig"
+      }
+    ],
+    "i_signal_ipdus": [
+      {
+        "name": "CombinedStatusLockedLeftIPdu",
+        "uuid": "a8e6243d-3672-4024-9196-666863d7a492",
+        "mappings": [
+          {
+            "short_name": "CombinedStatusLockedLeftMapping",
+            "i_signal_ref": "/Demo/EDC/Communication/CombinedStatusLockedLeftISig"
+          }
+        ]
+      },
+      {
+        "name": "CombinedStatusOpenLeftIPdu",
+        "uuid": "0b5e696b-ac49-4403-83de-19182302cdb6",
+        "mappings": [
+          {
+            "short_name": "CombinedStatusOpenLeftMapping",
+            "i_signal_ref": "/Demo/EDC/Communication/CombinedStatusOpenLeftISig"
+          }
+        ]
+      },
+      {
+        "name": "CombinedStatusLockedRightIPdu",
+        "uuid": "e2aed00f-acef-4118-867f-4e0726f26610",
+        "mappings": [
+          {
+            "short_name": "CombinedStatusLockedRightMapping",
+            "i_signal_ref": "/Demo/EDC/Communication/CombinedStatusLockedRightISig"
+          }
+        ]
+      },
+      {
+        "name": "CombinedStatusOpenRightIPdu",
+        "uuid": "de0dcabd-13d5-4ada-994e-332046f64c71",
+        "mappings": [
+          {
+            "short_name": "CombinedStatusOpenRightMapping",
+            "i_signal_ref": "/Demo/EDC/Communication/CombinedStatusOpenRightISig"
+          }
+        ]
+      }
+    ]
+  }
+}

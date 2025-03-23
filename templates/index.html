@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AUTOSAR Composition Diagram Generator</title>
+</head>
+<body>
+  <h1>AUTOSAR Composition Diagram Generator</h1>
+  <form action="/" method="post" enctype="multipart/form-data">
+    <p>
+      Upload your ARXML file:
+      <input type="file" name="arxml_file" required>
+    </p>
+    <p>
+      <input type="submit" value="Generate Diagram">
+    </p>
+  </form>
+
+  {% if diagram %}
+    <h2>Generated Diagram</h2>
+    <img src="{{ url_for('diagram', filename=diagram) }}" alt="Composition Diagram">
+  {% endif %}
+
+  <hr>
+  <h2>Roadmap for Future Improvements</h2>
+  <ul>
+    <li><strong>Enhanced Layout:</strong> Experiment with hierarchical layouts (e.g., dot or graphviz) for clearer component grouping.</li>
+    <li><strong>Port & Connector Details:</strong> Instead of just nodes for SWCs, represent ports as symbols attached to boxes and show connectors between specific ports.</li>
+    <li><strong>Multiple Views:</strong> Develop separate diagrams for overall composition, internal SWC behavior, and data type/communication mappings.</li>
+    <li><strong>Interactive Visualization:</strong> Integrate JavaScript libraries (like D3.js or Cytoscape.js) for interactive diagram exploration.</li>
+    <li><strong>Error Handling:</strong> Improve validation and error reporting for nonconforming ARXML files.</li>
+    <li><strong>UI/UX Enhancements:</strong> Polish the frontend to allow users to toggle between views or filter details.</li>
+  </ul>
+</body>
+</html>
